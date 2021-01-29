@@ -2,6 +2,10 @@
   "name": "internapi",
   "version": "1.0.0",
   "description": "Submission for flutterwave backend internship role",
+  "engines": {
+    "node": "12.18.3",
+    "npm": "6.14.6"
+  },
   "main": "index.js",
   "scripts": {
     "test": "try",
