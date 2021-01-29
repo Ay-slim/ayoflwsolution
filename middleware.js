@@ -1,17 +1,12 @@
 const { errorResponse, internalErrorResponse } = require('./utils/response.utils');
 const { requiredFieldsSchema, ruleFieldSchema } = require('./validator')
 
-function checkValidPayload(req, res, next) {
-    try {
-        if(req.headers['content-type']==='application/json'){
-            return next()
-        }
-        errorResponse({ message: 'Invalid JSON payload passed.', res })
+const catchInvalidPayload = (err, _, res, next) => {
+    if (err) {
+      errorResponse({ message: "Invalid JSON payload passed.", res })
     }
-    catch(error){
-        internalErrorResponse({ data: error.details, res })
-    }
-}
+    next()
+  }
 
 async function requiredFields(req, res, next) {
     try {
@@ -67,4 +62,4 @@ function ruleFieldValidation(req, res, next){
 }
 
 
-module.exports = { checkValidPayload, requiredFields, checkForSpecifiedField, ruleFieldValidation } 
+module.exports = { catchInvalidPayload, requiredFields, checkForSpecifiedField, ruleFieldValidation } 

@@ -1,7 +1,7 @@
 const express = require('express');
 const validationRouter = express();
 const { okResponse, internalErrorResponse } = require('../utils/response.utils')
-const { checkValidPayload, requiredFields, checkForSpecifiedField, ruleFieldValidation } = require('../middleware')
+const { requiredFields, checkForSpecifiedField, ruleFieldValidation } = require('../middleware')
 
 function validationController (req, res) {
     try{
@@ -20,8 +20,7 @@ function validationController (req, res) {
     }
 }
 
-validationRouter.post('/validate-rule', 
-    checkValidPayload,
+validationRouter.post('/validate-rule',
     requiredFields, 
     checkForSpecifiedField,
     ruleFieldValidation,
