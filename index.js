@@ -10,8 +10,6 @@ app.use(morgan('dev'));
 
 app.use(express.json());
 
-app.use('/ayoflwsolution', indexRouter)
-
 app.listen(process.env.PORT || 5500, () =>
   console.log(`App running on port ${process.env.PORT || 5500}`)
 );
