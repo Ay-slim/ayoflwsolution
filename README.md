@@ -1,9 +1,11 @@
 ﻿﻿﻿﻿﻿
+#Rules-validation API
+This app is live at [ayoflwsolution.herokuapp.com](ayoflwsolution.herokuapp.com) (GET)
 
-This is a simple rules-validation API that was created based on the rules described below:
+The directions below guide the requests and responses that can be sent to it.
 
 
-The response structure for your API should be fashioned after the popular JSEND pattern.
+Response structure: JSEND pattern.
 
 Example:
 
@@ -11,15 +13,15 @@ Example:
 JSON
 {
 
-"message": "API response message",
+  "message": "API response message",
 
-"status": "success",
+  "status": "success",
 
-"data": {
+  "data": {
 
-isValidForRule: true,
+  isValidForRule: true,
 
-}
+  }
 
 }
 
@@ -32,7 +34,7 @@ isValidForRule: true,
 "data" - This is the meat of your API response. It should contain your actual response data.
 
 
-Your rule-validation API should have just two routes:
+There are two routes:
 
 1/ First route is the base route. HTTP GET "/"
 
@@ -41,23 +43,23 @@ It should return with data in the following format:
 ```JSON
 {
 
-"message": "My Rule-Validation API"
+  "message": "My Rule-Validation API"
 
-"status": "success",
+  "status": "success",
 
-"data": {
+  "data": {
 
-"name": "Amos Burton",
+  "name": "Amos Burton",
 
-"github": "@amosburton",
+  "github": "@amosburton",
 
-"email": "amosburton@rocinantecrew.com",
+  "email": "amosburton@rocinantecrew.com",
 
-"mobile": "08069920011",
+  "mobile": "08069920011",
 
-"twitter": "@amosb"
+  "twitter": "@amosb"
 
-}
+  }
 
 }
 
