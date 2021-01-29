@@ -12,7 +12,7 @@ const { requiredFieldsSchema, ruleFieldSchema } = require('./validator')
  */
 const catchInvalidPayload = (err, _, res, next) => {
     if (err) {
-      errorResponse({ message: "Invalid JSON payload passed.", res })
+        errorResponse({ message: "Invalid JSON payload passed.", res })
     }
     next()
   }
