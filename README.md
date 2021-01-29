@@ -446,7 +446,7 @@ Response: (HTTP 400)
 "field": "0",
 "field_value": "d",
 "condition": "eq",
-"condition\_alue: "a"
+"condition_value: "a"
 }
 }
 }
