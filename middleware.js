@@ -45,11 +45,7 @@ async function requiredFields(req, res, next) {
 function checkForSpecifiedField(req, res, next) {
     try{
         const field = req.body.rule.field
-        if(req.body.data.toString() === '[object Object]' && field in req.body.data) {
-            return next()
-        } else if(Array.isArray(req.body.data) && req.body.data.includes(field)) {
-            return next()
-        } else if(typeof(req.body.data) === 'string' && field < req.body.data.length) {
+        if(req.body.data.hasOwnProperty(field)) {
             return next()
         }
         errorResponse({ message: `field ${field} is missing from data.`, res })
