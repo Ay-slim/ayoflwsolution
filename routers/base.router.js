@@ -1,3 +1,5 @@
+// GET endpoint router. Responds with personal info to requests sent to the base URL
+
 const express = require('express');
 const baseRouter = express();
 const { okResponse } = require('../utils/response.utils')

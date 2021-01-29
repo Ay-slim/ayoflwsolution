@@ -1,3 +1,5 @@
+// Defines the required fields and rules schemas.
+
 const joi = require('joi')
 
 const requiredFieldsSchema = joi.object({
@@ -9,7 +11,10 @@ const requiredFieldsSchema = joi.object({
    data: joi.alternatives().try(joi.object(), joi.array(), joi.string()).required()
 })
 
-
+/**
+ * Checks the specified condition and evaluates it between the field and condition values.
+ * @param {*} param packet { fieldValue, condition, conditionValue }
+ */
 function ruleFieldSchema(fieldValue, condition, conditionValue) {
     switch(condition) {
         case 'eq':

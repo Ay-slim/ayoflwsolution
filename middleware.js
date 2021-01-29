@@ -1,6 +1,15 @@
+// Functions that implement the schemas and intercept the request to enforce requirements.
+
 const { errorResponse, internalErrorResponse } = require('./utils/response.utils');
 const { requiredFieldsSchema, ruleFieldSchema } = require('./validator')
 
+/**
+ * Returns an error message for invalid json errors caught from the body parser middleware.
+ * @param {*} err error object
+ * @param {*} _ placeholder for the request which isn't used here
+ * @param {*} res response object
+ * @param {*} next passes to the next handler
+ */
 const catchInvalidPayload = (err, _, res, next) => {
     if (err) {
       errorResponse({ message: "Invalid JSON payload passed.", res })
@@ -8,6 +17,12 @@ const catchInvalidPayload = (err, _, res, next) => {
     next()
   }
 
+  /**
+ * Implements the required fields schema. Returns the appropriate error message if violated.
+ * @param {*} req request object
+ * @param {*} res response object
+ * @param {*} next passes to the next handler
+ */
 async function requiredFields(req, res, next) {
     try {
         const values = await requiredFieldsSchema.validateAsync(req.body, {
@@ -21,6 +36,12 @@ async function requiredFields(req, res, next) {
     }
 }
 
+  /**
+ * Checks for the specified field in the rules object. Returns the appropriate error message if absent.
+ * @param {*} req request object
+ * @param {*} res response object
+ * @param {*} next passes to the next handler
+ */
 function checkForSpecifiedField(req, res, next) {
     try{
         const field = req.body.rule.field
@@ -38,6 +59,12 @@ function checkForSpecifiedField(req, res, next) {
     }
 }
 
+  /**
+ * Confirms that the specified field value fulfils the condition. Returns appropriate error otherwise.
+ * @param {*} req request object
+ * @param {*} res response object
+ * @param {*} next passes to the next handler
+ */
 function ruleFieldValidation(req, res, next){
     try{
         const selectedField = req.body.rule.field

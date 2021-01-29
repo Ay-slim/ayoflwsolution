@@ -1,8 +1,15 @@
+// Router for the POST endpoint. Routes request through all the middleware.
+
 const express = require('express');
 const validationRouter = express();
 const { okResponse, internalErrorResponse } = require('../utils/response.utils')
 const { requiredFields, checkForSpecifiedField, ruleFieldValidation } = require('../middleware')
 
+  /**
+ * Final handler for /validate-rule route.
+ * @param {*} req request object
+ * @param {*} res response object
+ */
 function validationController (req, res) {
     try{
         const field = req.body.rule.field

@@ -1,9 +1,16 @@
-const express = require('express')
-const helmet =require('helmet')
+// Gateway to the app. API set up with security and monitoring packaages.
+
+const express = require('express');
+
+const helmet =require('helmet');
+
 const morgan = require('morgan');
+
 const indexRouter = require('./routers/index.router');
-const bodyParser = require('body-parser')
-const { catchInvalidPayload } = require('./middleware')
+
+const bodyParser = require('body-parser');
+
+const { catchInvalidPayload } = require('./middleware');
 
 const app = express();
 
