@@ -91,7 +91,7 @@ JSON
 
 "condition": "gte",
 
-"condition\_value": 30
+"condition_value": 30
 
 },
 
@@ -204,7 +204,7 @@ JSON
 ```
 
 f/ If an invalid JSON payload is passed to your API, your endpoint response (HTTP 400 status code) should be:
-
+```
 {
 
 "message": "Invalid JSON payload passed."
@@ -214,7 +214,7 @@ f/ If an invalid JSON payload is passed to your API, your endpoint response (HTT
 "data": null
 
 }
-
+```
 [PS: For the error responses described above, please note that the punctuation is important. I.e the period at the end of each error message.]
 
 g/ If the field specified in the rule object is missing from the data passed, your endpoint response (HTTP 400 status code) should be:
@@ -266,11 +266,11 @@ JSON
 
 "field": "[name of field]",
 
-"field\_value": [value of field],
+"field_value": [value of field],
 
 "condition": "[rule condition]",
 
-"condition\_value: [condition value]
+"condition_value: [condition value]
 
 }
 
@@ -298,11 +298,11 @@ JSON
 
 "field": "missions",
 
-"field\_value": 30,
+"field_value": 30,
 
 "condition": "gte",
 
-"condition\_value: 30
+"condition_value: 30
 
 }
 
@@ -329,11 +329,11 @@ i/ If the rule validation fails, your endpoint response (HTTP 400 status code) s
 
 "field": "[name of field]",
 
-"field\_value": [value of field],
+"field_value": [value of field],
 
 "condition": "[rule condition]",
 
-"condition\_value: [condition value]
+"condition_value: [condition value]
 
 }
 
@@ -360,11 +360,11 @@ i/ If the rule validation fails, your endpoint response (HTTP 400 status code) s
 
 "field": "missions",
 
-"field\_value": 30,
+"field_value": 30,
 
 "condition": "gte",
 
-"condition\_value: 54
+"condition_value: 54
 
 }
 
@@ -380,31 +380,22 @@ Example JSON request payloads:
 
 ```
 {
-
 "rule": {
 
-"field": "missions"
+"field": "missions",
 
 "condition": "gte",
 
-"condition\_value": 30
-
+"condition\value": 30
 },
 
 "data": {
-
 "name": "James Holden",
-
 "crew": "Rocinante",
-
 "age": 34,
-
 "position": "Captain",
-
 "missions": 45
-
 }
-
 }
 
 ```
@@ -414,29 +405,17 @@ Example JSON request payloads:
 Response: (HTTP 200)
 
 {
-
 "message": "field missions successfully validated."
-
 "status": "success",
-
 "data": {
-
 "validation": {
-
 "error": false,
-
 "field": "missions",
-
-"field\_value": 45,
-
+"field_value": 45,
 "condition": "gte",
-
-"condition\_value: 30
-
+"condition_value: 30
 }
-
 }
-
 }
 ```
 
@@ -445,19 +424,12 @@ Response: (HTTP 200)
 ```
 
 {
-
 "rule": {
-
-"field": "0"
-
+"field": "0",
 "condition": "eq",
-
-"condition\_value": "a"
-
+"condition_value": "a"
 },
-
 "data": "damien-marley"
-
 }
 ```
 
@@ -466,29 +438,17 @@ Response: (HTTP 200)
 Response: (HTTP 400)
 
 {
-
 "message": "field 0 failed validation."
-
 "status": "error",
-
 "data": {
-
 "validation": {
-
 "error": true,
-
 "field": "0",
-
-"field\_value": "d",
-
+"field_value": "d",
 "condition": "eq",
-
-"condition\_value: "a"
-
+"condition\_alue: "a"
 }
-
 }
-
 }
 ```
 
@@ -496,19 +456,12 @@ Response: (HTTP 400)
 
 ```
 {
-
 "rule": {
-
-"field": "5"
-
+"field": "5",
 "condition": "contains",
-
-"condition\_value": "rocinante"
-
+"condition_value": "rocinante"
 },
-
 "data": ["The Nauvoo", "The Razorback", "The Roci", "Tycho"]
-
 }
 ```
 
@@ -516,13 +469,9 @@ Response: (HTTP 400)
 Response: (HTTP 400)
 
 {
-
-"message": "field 5 is missing from data."
-
+"message": "field 5 is missing from data.",
 "status": "error",
-
 "data": null
-
 }
 
 ```
