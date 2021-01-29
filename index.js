@@ -10,6 +10,8 @@ app.use(morgan('dev'));
 
 app.use(express.json());
 
+app.use(indexRouter)
+
 app.listen(process.env.PORT || 5500, () =>
   console.log(`App running on port ${process.env.PORT || 5500}`)
 );
