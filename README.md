@@ -1,6 +1,5 @@
 ﻿﻿﻿﻿﻿
 #Rules-validation API
-This app is live at [ayoflwsolution.herokuapp.com](ayoflwsolution.herokuapp.com) (GET)
 
 The directions below guide the requests and responses that can be sent to it.
 
